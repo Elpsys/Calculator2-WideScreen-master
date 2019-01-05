@@ -48,6 +48,7 @@ public struct Stack<T> {
 class ViewController: UIViewController {
     var myOperator = Stack<Int>()
     var myNumber = Stack<Double>()
+    var Allnumber = Stack<Double>()
     @IBOutlet weak var output: UITextField!
     var temp:Double = 0
     var Operator:Int = 0
@@ -58,6 +59,7 @@ class ViewController: UIViewController {
     var temp4:Double = 0
     var control1:Int = 0
     var control2:Int = 0
+    var control3:Int = 0
     var Mixed:Int = 0
     var forever:Double = 0
     var deal:Double = 0
@@ -68,6 +70,7 @@ class ViewController: UIViewController {
         temp2 = 0
         Operator = 0
         control2 = 1
+        control3 = 0
         instead = 0
         Mixed = 0
         if !myNumber.isEmpty()
@@ -78,7 +81,11 @@ class ViewController: UIViewController {
         {
             deal1 = myOperator.pop()!
         }
-        deal = 0;
+        if !Allnumber.isEmpty()
+        {
+            deal = Allnumber.pop()!
+        }
+        deal = 0
         deal1 = 0
     }
     @IBAction func change(_ sender: UIButton) {
@@ -127,12 +134,16 @@ class ViewController: UIViewController {
             Mixed = 1
             forever = temp2
             control2 = 1
+            control3 = control3 + 1
+            Allnumber.push(element: forever)
         }
         if instead == 2
         {
             Mixed = -1
             forever = temp2
             control2 = 1
+            control3 = control3 + 1
+            Allnumber.push(element: forever)
         }
         temp1 = 0
         myOperator.push(element: Operator)
@@ -176,12 +187,16 @@ class ViewController: UIViewController {
             Mixed = 1
             forever = temp2
             control2 = 1
+            control3 = control3 + 1
+            Allnumber.push(element: forever)
         }
         if instead == 2
         {
             Mixed = -1
             forever = temp2
             control2 = 1
+            control3 = control3 + 1
+            Allnumber.push(element: forever)
         }
         temp1 = 0
         myOperator.push(element: Operator)
@@ -293,12 +308,21 @@ class ViewController: UIViewController {
         {
             if Mixed == 1
             {
-                temp = temp + Double(output.text!)! + forever
+                temp = temp + Double(output.text!)!
+                for _ in 1...control3
+                {
+                    temp = temp + Allnumber.pop()!
+                }
+                
                 output.text = "\(temp)"
             }
             else if Mixed == -1
             {
-                temp = -temp + Double(output.text!)! + forever
+                temp = -temp + Double(output.text!)!
+                for _ in 1...control3
+                {
+                    temp = temp + Allnumber.pop()!
+                }
                 output.text = "\(temp)"
             }
             else
@@ -311,12 +335,20 @@ class ViewController: UIViewController {
         {
             if Mixed == 1
             {
-                temp = temp - Double(output.text!)! + forever
+                temp = temp - Double(output.text!)!
+                for _ in 1...control3
+                {
+                    temp = temp + Allnumber.pop()!
+                }
                 output.text = "\(temp)"
             }
             else if Mixed == -1
             {
-                temp = -temp - Double(output.text!)! + forever
+                temp = -temp - Double(output.text!)!
+                for _ in 1...control3
+                {
+                    temp = temp + Allnumber.pop()!
+                }
                 output.text = "\(temp)"
             }
             else
@@ -329,12 +361,20 @@ class ViewController: UIViewController {
         {
             if Mixed == 1
             {
-                temp = temp * Double(output.text!)! + forever
+                temp = temp * Double(output.text!)!
+                for _ in 1...control3
+                {
+                    temp = temp + Allnumber.pop()!
+                }
                 output.text = "\(temp)"
             }
             else if Mixed == -1
             {
-                temp = -temp * Double(output.text!)! + forever
+                temp = -temp * Double(output.text!)!
+                for _ in 1...control3
+                {
+                    temp = temp + Allnumber.pop()!
+                }
                 output.text = "\(temp)"
             }
             else
@@ -347,12 +387,20 @@ class ViewController: UIViewController {
         {
             if Mixed == 1
             {
-                temp = temp / Double(output.text!)! + forever
+                temp = temp / Double(output.text!)!
+                for _ in 1...control3
+                {
+                    temp = temp + Allnumber.pop()!
+                }
                 output.text = "\(temp)"
             }
             else if Mixed == -1
             {
-                temp = -temp / Double(output.text!)! + forever
+                temp = -temp / Double(output.text!)!
+                for _ in 1...control3
+                {
+                    temp = temp + Allnumber.pop()!
+                }
                 output.text = "\(temp)"
             }
             else
@@ -367,6 +415,7 @@ class ViewController: UIViewController {
         control1 = 1
         Operator = 0
         control2 = 0
+        control3 = 0
         Mixed = 0
         if !myNumber.isEmpty()
         {
