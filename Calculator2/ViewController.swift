@@ -109,45 +109,48 @@ class ViewController: UIViewController {
             output.text = ""
             Operator = 3
         }
-        if !myOperator.isEmpty()
+        if output.text != ""
         {
-            instead = myOperator.pop()!
+            if !myOperator.isEmpty()
+            {
+                instead = myOperator.pop()!
+            }
+            if !myNumber.isEmpty()
+            {
+                temp2 = myNumber.pop()!
+            }
+            if instead == 3
+            {
+                temp = temp2 * temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            if instead == 4
+            {
+                temp = temp2 / temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            if instead == 1
+            {
+                Mixed = 1
+                forever = temp2
+                control2 = 1
+                control3 = control3 + 1
+                Allnumber.push(element: forever)
+            }
+            if instead == 2
+            {
+                Mixed = -1
+                forever = temp2
+                control2 = 1
+                control3 = control3 + 1
+                Allnumber.push(element: forever)
+            }
+            temp1 = 0
+            myOperator.push(element: Operator)
+            myNumber.push(element: temp)
         }
-        if !myNumber.isEmpty()
-        {
-            temp2 = myNumber.pop()!
-        }
-        if instead == 3
-        {
-            temp = temp2 * temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        if instead == 4
-        {
-            temp = temp2 / temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        if instead == 1
-        {
-            Mixed = 1
-            forever = temp2
-            control2 = 1
-            control3 = control3 + 1
-            Allnumber.push(element: forever)
-        }
-        if instead == 2
-        {
-            Mixed = -1
-            forever = temp2
-            control2 = 1
-            control3 = control3 + 1
-            Allnumber.push(element: forever)
-        }
-        temp1 = 0
-        myOperator.push(element: Operator)
-        myNumber.push(element: temp)
     }
     
     @IBAction func divide(_ sender: UIButton) {
@@ -162,45 +165,48 @@ class ViewController: UIViewController {
             output.text = ""
             Operator = 4
         }
-        if !myOperator.isEmpty()
+        if output.text != ""
         {
-            instead = myOperator.pop()!
+            if !myOperator.isEmpty()
+            {
+                instead = myOperator.pop()!
+            }
+            if !myNumber.isEmpty()
+            {
+                temp2 = myNumber.pop()!
+            }
+            if instead == 4
+            {
+                temp = temp2 / temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            if instead == 3
+            {
+                temp = temp2 * temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            if instead == 1
+            {
+                Mixed = 1
+                forever = temp2
+                control2 = 1
+                control3 = control3 + 1
+                Allnumber.push(element: forever)
+            }
+            if instead == 2
+            {
+                Mixed = -1
+                forever = temp2
+                control2 = 1
+                control3 = control3 + 1
+                Allnumber.push(element: forever)
+            }
+            temp1 = 0
+            myOperator.push(element: Operator)
+            myNumber.push(element: temp)
         }
-        if !myNumber.isEmpty()
-        {
-            temp2 = myNumber.pop()!
-        }
-        if instead == 4
-        {
-            temp = temp2 / temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        if instead == 3
-        {
-            temp = temp2 * temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        if instead == 1
-        {
-            Mixed = 1
-            forever = temp2
-            control2 = 1
-            control3 = control3 + 1
-            Allnumber.push(element: forever)
-        }
-        if instead == 2
-        {
-            Mixed = -1
-            forever = temp2
-            control2 = 1
-            control3 = control3 + 1
-            Allnumber.push(element: forever)
-        }
-        temp1 = 0
-        myOperator.push(element: Operator)
-        myNumber.push(element: temp)
     }
     @IBAction func subtract(_ sender: UIButton) {
         if output.text == ""
@@ -214,41 +220,44 @@ class ViewController: UIViewController {
             output.text = ""
             Operator = 2
         }
-        temp1 = 0
-        if !myOperator.isEmpty()
+        if output.text != ""
         {
-            instead = myOperator.pop()!
+            temp1 = 0
+            if !myOperator.isEmpty()
+            {
+                instead = myOperator.pop()!
+            }
+            if !myNumber.isEmpty()
+            {
+                temp2 = myNumber.pop()!
+            }
+            if instead == 2
+            {
+                temp = temp2 - temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            if instead == 1
+            {
+                temp = temp2 + temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            if instead == 4
+            {
+                temp = temp2 / temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            if instead == 3
+            {
+                temp = temp2 * temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            myOperator.push(element: Operator)
+            myNumber.push(element: temp)
         }
-        if !myNumber.isEmpty()
-        {
-            temp2 = myNumber.pop()!
-        }
-        if instead == 2
-        {
-            temp = temp2 - temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        if instead == 1
-        {
-            temp = temp2 + temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        if instead == 4
-        {
-            temp = temp2 / temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        if instead == 3
-        {
-            temp = temp2 * temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        myOperator.push(element: Operator)
-        myNumber.push(element: temp)
     }
     @IBAction func add(_ sender: UIButton) {
         if output.text == ""
@@ -262,41 +271,44 @@ class ViewController: UIViewController {
             output.text = ""
             Operator = 1
         }
-        temp1 = 0
-        if !myOperator.isEmpty()
+        if output.text != ""
         {
-            instead = myOperator.pop()!
+            temp1 = 0
+            if !myOperator.isEmpty()
+            {
+                instead = myOperator.pop()!
+            }
+            if !myNumber.isEmpty()
+            {
+                temp2 = myNumber.pop()!
+            }
+            if instead == 1
+            {
+                temp = temp2 + temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            if instead == 2
+            {
+                temp = temp2 - temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            if instead == 4
+            {
+                temp = temp2 / temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            if instead == 3
+            {
+                temp = temp2 * temp
+                output.text = "\(temp)"
+                control2 = 1
+            }
+            myOperator.push(element: Operator)
+            myNumber.push(element: temp)
         }
-        if !myNumber.isEmpty()
-        {
-            temp2 = myNumber.pop()!
-        }
-        if instead == 1
-        {
-            temp = temp2 + temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        if instead == 2
-        {
-            temp = temp2 - temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        if instead == 4
-        {
-            temp = temp2 / temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        if instead == 3
-        {
-            temp = temp2 * temp
-            output.text = "\(temp)"
-            control2 = 1
-        }
-        myOperator.push(element: Operator)
-        myNumber.push(element: temp)
     }
     
     @IBAction func equel(_ sender: UIButton) {
